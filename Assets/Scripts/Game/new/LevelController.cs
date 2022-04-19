@@ -14,14 +14,13 @@ public class LevelController : MonoBehaviourPunCallbacks
     public Transform[] turretPrefabs;
     public Transform[] bonusPrefabs;
     public Transform bonuses;
-       
+    public Transform playerContainer;
+    public Transform mainCamera;
          
     private CreateLevel level;    
     private List<Transform> emptyCells;
 
-    public static int playerScore = 0;
-    public static Transform heroTransform;
-    public static Transform currentCell;
+    public static int playerScore = 0;    
 
     // Start is called before the first frame update
     void Start()
@@ -84,11 +83,8 @@ public class LevelController : MonoBehaviourPunCallbacks
     }
 
     private void SpawnPlayer()
-    {
-        heroTransform = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPoints.GetChild(Random.Range(0, SpawnPoints.childCount)).position, Quaternion.identity).transform;        
-        Transform players = GameObject.Find("Players").transform;        
-        //hero.SetParent(players);        
+    {        
+        Transform hero = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPoints.GetChild(Random.Range(0, SpawnPoints.childCount)).position, Quaternion.identity).transform;
+        hero.SetParent(playerContainer);   
     }
-
-
 }

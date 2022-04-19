@@ -78,11 +78,6 @@ public class Cell : MonoBehaviour
         _meshDown.enabled = false;
         _collider.enabled = false;
         
-        if (playerOnCell)
-        {            
-            Rigidbody hero = LevelController.heroTransform.GetComponent<Rigidbody>();
-            hero.constraints = RigidbodyConstraints.None;            
-        }
         StartCoroutine(Respawn(collapse));
     }
 

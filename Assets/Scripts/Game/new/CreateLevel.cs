@@ -130,7 +130,7 @@ public class CreateLevel
         GameObject collapse = null;
         bool isUnderCharacter = false;
 
-        for (int i = 0; i < collapses.childCount; i++)
+        /*for (int i = 0; i < collapses.childCount; i++)
         {
             if (collapses.GetChild(i).gameObject.activeSelf && collapses.GetChild(i).transform.position.x == LevelController.currentCell.position.x && collapses.GetChild(i).transform.position.z == LevelController.currentCell.position.z)
             {
@@ -141,7 +141,7 @@ public class CreateLevel
             {
                 collapse = collapses.GetChild(i).gameObject;
             }
-        }
+        }*/
         CollapseInitialization(collapse, emptyCells, isUnderCharacter);
     }
 

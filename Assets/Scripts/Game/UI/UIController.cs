@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
         scoreField.text = LevelController.playerScore.ToString();
         if (cadr%313 == 0)
         {
-            infoField.text += " / " + LevelController.heroTransform.position.x;
+            //infoField.text += " / " + LevelController.heroTransform.position.x;
         }
         
     }

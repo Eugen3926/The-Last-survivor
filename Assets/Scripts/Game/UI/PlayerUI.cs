@@ -14,6 +14,6 @@ public class PlayerUI : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        transform.position = new Vector3(LevelController.heroTransform.position.x, transform.position.y, LevelController.heroTransform.position.z);
+        //transform.position = new Vector3(LevelController.heroTransform.position.x, transform.position.y, LevelController.heroTransform.position.z);
     }
 }

@@ -34,7 +34,7 @@ public class Turret : MonoBehaviour
     {
         if (isActive)
         {
-            tower.LookAt(LevelController.heroTransform);            
+            //tower.LookAt(LevelController.heroTransform);            
         }               
         
     }

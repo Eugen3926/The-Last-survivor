@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
@@ -6,13 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerController
 {
-    
-
-    public void Move(float joyX, float joyZ)
-    {
-        Rigidbody hero = LevelController.heroTransform.GetComponent<Rigidbody>();
+    public void Move(float joyX, float joyZ, Rigidbody hero)
+    {        
         Vector3 dir = new Vector3(joyX * 0.05f, 0f, joyZ * 0.05f);
-        Rotate(LevelController.heroTransform, dir);
+        Rotate(hero.transform, dir);
         hero.velocity = new Vector3(joyX * 4f, 0f, joyZ * 4f);
         //Player.heroTransform.position += dir;        
     }    
@@ -57,19 +53,19 @@ public class PlayerController
 
     private void ArmorEffect()
     {
-        Image armorBar = LevelController.heroTransform.parent.GetChild(1).GetChild(3).GetComponent<Image>();
+       /* Image armorBar = LevelController.heroTransform.parent.GetChild(1).GetChild(3).GetComponent<Image>();
         GameObject armorBarBackGround = armorBar.transform.parent.GetChild(2).gameObject;
         if (!armorBarBackGround.activeSelf)
         {
             armorBarBackGround.SetActive(true);
             armorBar.gameObject.SetActive(true);
         }
-        armorBar.fillAmount = 1;
+        armorBar.fillAmount = 1;*/
     }
 
     private void HealthEffect()
     {
-        Image healthBar = LevelController.heroTransform.parent.GetChild(1).GetChild(1).GetComponent<Image>();
-        healthBar.fillAmount = 1f;
+        /*Image healthBar = LevelController.heroTransform.parent.GetChild(1).GetChild(1).GetComponent<Image>();
+        healthBar.fillAmount = 1f;*/
     }
 }
