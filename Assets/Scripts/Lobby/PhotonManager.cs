@@ -4,35 +4,15 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using System;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] string region;
-    [SerializeField] Text playerInfo;
     [SerializeField] private byte maxPlayers = 4;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        PhotonNetwork.NickName = "Player" + Random.Range(1000, 9999);
-        PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.GameVersion = "1";
-        PhotonNetwork.ConnectUsingSettings();
-        Debug.Log("Player name: " + PhotonNetwork.NickName);
 
-        PhotonNetwork.ConnectToRegion(region);
-        
-    }
-
-    public override void OnConnectedToMaster()
+    private void Start()
     {
-        Debug.Log("Connected to: " + PhotonNetwork.CloudRegion);
-        QuickMatch();
-    }
-
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        Debug.Log("Disconnected");
+        LobbyUiController.OnReadyButtonDown += QuickMatch;
     }
 
     private void CreateRoom()
@@ -42,38 +22,17 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(null, roomOptions, null);        
     }
 
-    private void QuickMatch()
+    private void QuickMatch(string playerName)
     {
+        LobbyUiController.OnReadyButtonDown -= QuickMatch;
+        PhotonNetwork.NickName = playerName;        
         PhotonNetwork.JoinRandomRoom();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         CreateRoom();        
-    }
-    
-    /*public void CreateRoomButton() {
-        if (!PhotonNetwork.IsConnected)
-        {
-            return;
-        }
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 2;
-        //PhotonNetwork.CreateRoom(roomName.text, roomOptions, TypedLobby.Default);
-    }
-
-    public void JoinOrCreateRandomRoom()
-    {
-        if (!PhotonNetwork.IsConnected)
-        {
-            return;
-        }
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 2;
-        
-        PhotonNetwork.JoinRandomOrCreateRoom(null, new Photon.Realtime.RoomOptions { MaxPlayers = 2});
-        //PhotonNetwork.CreateRoom(roomName.text, roomOptions, TypedLobby.Default);
-    }*/
+    }  
 
     public override void OnCreatedRoom()
     {
@@ -87,8 +46,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined to " + PhotonNetwork.CurrentRoom.Name + " room");
-        playerInfo.text = PhotonNetwork.NickName;
+        Debug.Log("Joined to " + PhotonNetwork.CurrentRoom.Name + " room");        
         PhotonNetwork.LoadLevel("Main");
     }
 }
