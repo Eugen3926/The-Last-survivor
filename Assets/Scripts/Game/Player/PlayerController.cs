@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerController
 {
     public void Move(float joyX, float joyZ, Rigidbody hero)
-    {        
+    {               
         Vector3 dir = new Vector3(joyX * 0.05f, 0f, joyZ * 0.05f);
         Rotate(hero.transform, dir);
         hero.velocity = new Vector3(joyX * 4f, 0f, joyZ * 4f);

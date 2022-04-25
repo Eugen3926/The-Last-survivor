@@ -7,37 +7,34 @@ using Photon.Pun;
 using Photon.Realtime;
 
 public class Player : MonoBehaviour
-{    
-    public Image healthBar;
-    public Image armorBar;
-    public Image armorBarBackGround;
+{
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Image armorBar;
+    [SerializeField] private Image armorBarBackGround;
+    [SerializeField] private Rigidbody hero;
+    [SerializeField] private PhotonView photonView;
+    private LevelController lc;
 
     public static event onChangeStateEvent onPlayerDeath;
     public delegate void onChangeStateEvent();
 
-    PlayerController player;
-
-    private PhotonView photonView;
-    private Rigidbody hero;
-
-    private void Awake()
-    {
-        photonView = transform.GetComponent<PhotonView>();
-        hero = transform.GetComponent<Rigidbody>();
-    }
+    private PlayerController player;    
 
     // Start is called before the first frame update
     void Start()
-    {        
+    { 
+        lc = FindObjectOfType<LevelController>();
+        lc.AddPlayer(this.transform);
         player = new PlayerController();
         JoystickController.onTouchDownEvent += MovePlayer;
         Bullet.onBulletHit += player.Damage;
         Bonus.onBonusCollision += player.BonusEffect;
+        Debug.Log("ActorNumber " + GetComponent<PhotonView>().Owner.ActorNumber);
     }
 
     
     private void Update()
-    {
+    {        
         if (photonView.IsMine)
         {
             if (armorBar.fillAmount <= 0)
@@ -50,17 +47,18 @@ public class Player : MonoBehaviour
                 onPlayerDeath?.Invoke();
                 Destroy(this.transform.parent.gameObject);
             }
-        }        
+        }      
     }
 
     private void OnCollisionEnter(Collision collision)
     {        
-        if (collision.gameObject.transform.parent.tag == "emptyCell") {
-            //currentCell = collision.gameObject.transform.parent;                       
-        }
+        /*if (collision.gameObject.transform.parent.tag == "emptyCell") {
+            currentCell = collision.gameObject.transform.parent;                       
+        }*/
     }
 
     private void MovePlayer(float joyX, float joyZ) {
+        Debug.Log("Move");
         if (!photonView.IsMine) return;         
         player.Move(joyX, joyZ, hero);
     }

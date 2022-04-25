@@ -1,18 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.UI;
-using System;
+using UnityEngine.SceneManagement;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private byte maxPlayers = 4;
+    [SerializeField] string region;
 
+    private bool isReadyToPlay = false;
+
+    private void Awake()
+    {
+        PhotonNetwork.NickName = "Player" + Random.Range(1000, 9999);
+    }
     private void Start()
     {
         LobbyUiController.OnReadyButtonDown += QuickMatch;
+        
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.GameVersion = "1";
+        PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.ConnectToRegion(region);
+    }
+
+    private void Update()
+    {
+        if(!isReadyToPlay) return;
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 2) SceneManager.LoadScene("Main");
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("Connected to " + PhotonNetwork.CloudRegion);
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        Debug.Log("Disconnected");
     }
 
     private void CreateRoom()
@@ -20,7 +45,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = maxPlayers;        
         PhotonNetwork.CreateRoom(null, roomOptions, null);        
-    }
+    }    
 
     private void QuickMatch(string playerName)
     {
@@ -46,7 +71,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined to " + PhotonNetwork.CurrentRoom.Name + " room");        
-        PhotonNetwork.LoadLevel("Main");
+        Debug.Log("Joined to " + PhotonNetwork.CurrentRoom.Name + " room");
+        isReadyToPlay = true;
     }
 }

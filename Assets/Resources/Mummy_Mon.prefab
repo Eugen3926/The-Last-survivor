@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9190466443636302106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1018,6 +1018,8 @@ MonoBehaviour:
   healthBar: {fileID: 4855328616714006370}
   armorBar: {fileID: 5002105912189014304}
   armorBarBackGround: {fileID: 8348550492485241378}
+  hero: {fileID: 3255501791195595567}
+  photonView: {fileID: 8661116173383151456}
 --- !u!114 &8661116173383151456
 MonoBehaviour:
   m_ObjectHideFlags: 0

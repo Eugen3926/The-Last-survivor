@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class LobbyUiController : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class LobbyUiController : MonoBehaviour
     [SerializeField] private Text placeHolder;
     [SerializeField] private GameObject popUp;
     [SerializeField] private Button readyButton;
+    [SerializeField] private GameObject statusField;
 
     public delegate void ButtonAction(string playerName);
     public static event ButtonAction OnReadyButtonDown;
@@ -16,26 +16,21 @@ public class LobbyUiController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerName.text = PhotonNetwork.NickName;
     }
 
     public void onReadyButtonDown()
     {
+        if (!PhotonNetwork.IsConnectedAndReady) return;
         if (playerName.text.Length < 5)
         {
             ErorMessage();
         }
         else
         {
-            OnReadyButtonDown?.Invoke(playerName.text);            
-        }
-        //QuickMatch();
+            OnReadyButtonDown?.Invoke(playerName.text);
+            statusField.SetActive(true);
+        }        
     }
 
     private void ErorMessage()

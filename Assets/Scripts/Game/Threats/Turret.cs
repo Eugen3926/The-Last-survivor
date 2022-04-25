@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Photon.Pun;
 
 public class Turret : MonoBehaviour
 {
-    public Transform tower;
-    public Transform rangeTriger;
-    public Transform bulletPrefab;
-    public Vector2Int angleRotation;
+    [SerializeField] private Transform tower;
+    [SerializeField] private Transform rangeTriger;
+    [SerializeField] private Transform bulletPrefab;
+    [SerializeField] private PhotonView photonView;
 
     private CreateLevel level;
     private Transform field;    
@@ -21,11 +22,11 @@ public class Turret : MonoBehaviour
         level = new CreateLevel();
         field = GameObject.Find("NewField").transform;
         Player.onPlayerDeath += GameOver;
-
     }
 
     private void GameOver()
     {
+        Player.onPlayerDeath -= GameOver;
         StopAllCoroutines();
     }
 
@@ -33,14 +34,30 @@ public class Turret : MonoBehaviour
     void Update()
     {
         if (isActive)
-        {
-            //tower.LookAt(LevelController.heroTransform);            
+        {            
+            //tower.LookAt(nearestPlayer());            
         }               
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private Transform nearestPlayer()
     {
+        float distance = Vector3.Distance(this.transform.position, LevelController.allPlayers[0].position);
+        Transform nearestPlayer = null;
+        foreach (var player in LevelController.allPlayers)
+        {      
+            float d = Vector3.Distance(this.transform.position, player.position);
+            if (d <= distance) 
+            { 
+                distance = d;
+                nearestPlayer = player;                
+            }
+        }
+        return nearestPlayer;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {        
         if (other.gameObject.tag == "Player") {
             isActive = true;
             StartCoroutine(Fire());
@@ -48,7 +65,7 @@ public class Turret : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other)
-    {
+    {        
         if (other.gameObject.tag == "Player")
         {
             isActive = false;
