@@ -41,13 +41,13 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     private void Update()
     {
-        if (PhotonNetwork.Time > lastTickTime + 5 && PhotonNetwork.IsMasterClient)
+        /*if (PhotonNetwork.Time > lastTickTime + 5 && PhotonNetwork.IsMasterClient)
         {
             Debug.Log("One");
             RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All};
             SendOptions sendOptions = new SendOptions { Reliability = true};
             PhotonNetwork.RaiseEvent(42, true, options, sendOptions);
-        }
+        }*/
     }
 
     private void GameOver()

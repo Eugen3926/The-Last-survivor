@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IOnEventCallback
 {
     [SerializeField] private Image healthBar;
     [SerializeField] private Image armorBar;
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour
     
     private void Update()
     {        
-        if (photonView.IsMine)
+        /*if (photonView.IsMine)
         {
             if (armorBar.fillAmount <= 0)
             {
@@ -47,14 +48,49 @@ public class Player : MonoBehaviour
                 onPlayerDeath?.Invoke();
                 Destroy(this.transform.parent.gameObject);
             }
-        }      
+        }      */
     }
 
     private void OnCollisionEnter(Collision collision)
-    {        
-        /*if (collision.gameObject.transform.parent.tag == "emptyCell") {
-            currentCell = collision.gameObject.transform.parent;                       
-        }*/
+    {
+        if (collision.gameObject.tag == "Selected")
+        {
+            RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
+            SendOptions sendOptions = new SendOptions { Reliability = true };
+            PhotonNetwork.RaiseEvent(1, photonView.Owner.ActorNumber, options, sendOptions);
+            this.transform.GetChild(2).gameObject.SetActive(false);
+        }        
+    }
+
+    public void OnEvent(EventData photonEvent)
+    {
+        switch (photonEvent.Code)
+        {
+            case 1:                
+                if (LevelController.allPlayers.Count > 1)
+                {
+                    foreach (var player in LevelController.allPlayers)
+                    {
+                        if (player.GetComponent<PhotonView>().Owner.ActorNumber == (int)photonEvent.CustomData)
+                        {
+                            player.GetChild(2).gameObject.SetActive(false);
+                        }
+                    }                    
+                }                
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    private void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 
     private void MovePlayer(float joyX, float joyZ) {
