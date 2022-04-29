@@ -1,10 +1,12 @@
 using UnityEngine;
+using Photon.Pun;
+using UnityEngine.UI;
 
 
 public class Bullet : MonoBehaviour
 {
     public static event onCollisionEvent onBulletHit;
-    public delegate void onCollisionEvent(Transform player);
+    public delegate void onCollisionEvent(PhotonView player);
 
    
     private Vector3 target;
@@ -33,17 +35,19 @@ public class Bullet : MonoBehaviour
         BulletFly();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (this.gameObject != null) {
+        if (this.gameObject != null)
+        {
             Destroy(this.gameObject);
         }
-        
+
         if (collision.gameObject.tag == "Player")
-        {            
-            onBulletHit?.Invoke(collision.transform);
+        {
+            PhotonView colPlayer = collision.transform.GetComponent<PhotonView>();            
+            onBulletHit?.Invoke(colPlayer);
         }
-    }
+    }    
 
     private void BulletFly() {
         if (target == null) {

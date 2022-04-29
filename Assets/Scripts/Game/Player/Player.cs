@@ -50,7 +50,7 @@ public class Player : MonoBehaviour, IOnEventCallback
                 onPlayerDeath?.Invoke(this.transform);                
                 PhotonNetwork.LeaveRoom();
             }
-        }      
+        }    
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -63,15 +63,13 @@ public class Player : MonoBehaviour, IOnEventCallback
         switch (photonEvent.Code)
         {
             case 1:
-                
-                foreach (var p in LevelController.allPlayers)
+                object[] data = (object[]) photonEvent.CustomData;
+                foreach (var player in PhotonNetwork.PhotonViewCollection)
                 {
-                    if (p.GetComponent<PhotonView>().Owner.ActorNumber == (byte) photonEvent.CustomData)
-                    {
-                        p.GetChild(5).GetChild(1).GetComponent<Image>().fillAmount -= 0.15f;
-                    }
-                }                          
-                                
+                    if (player.Owner.ActorNumber == (int) data[0]) {
+                        player.transform.GetChild(5).GetChild(1).GetComponent<Image>().fillAmount = (float) data[1];
+                    }                    
+                }                              
                 break;
             default:
                 break;
@@ -93,14 +91,14 @@ public class Player : MonoBehaviour, IOnEventCallback
         player.Move(joyX, joyZ, hero);
     }
 
-    private void GetDamage(Transform currentPlayer) {
-        /*byte playerNumb = (byte)currentPlayer.GetComponent<PhotonView>().Owner.ActorNumber;
-        PhotonNetwork.RaiseEvent(1, playerNumb, options, sendOptions);*/
-        //player.Damage(currentPlayer);
-        if (currentPlayer.GetComponent<PhotonView>().IsMine) {
-            currentPlayer.GetChild(5).GetChild(1).GetComponent<Image>().fillAmount -= 0.15f;
-            //PhotonNetwork.RaiseEvent(1, (byte) photonView.Owner.ActorNumber, options, sendOptions);
+    private void GetDamage(PhotonView currentPlayer) {       
+
+        if (photonView.Owner.ActorNumber == currentPlayer.Owner.ActorNumber)
+        {
+            Debug.Log("Damage");
+            Image healthBar = currentPlayer.transform.GetChild(5).GetChild(1).GetComponent<Image>();
+            healthBar.fillAmount -= 0.15f;            
+            PhotonNetwork.RaiseEvent(1, new object[] { currentPlayer.Owner.ActorNumber, healthBar.fillAmount }, options, sendOptions);            
         }
-        
     }
 }

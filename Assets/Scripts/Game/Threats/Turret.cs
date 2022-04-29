@@ -9,10 +9,18 @@ using ExitGames.Client.Photon;
 
 public class Turret : MonoBehaviour, IOnEventCallback
 {
+    [Header ("Base:")] 
     [SerializeField] private Transform tower;
+    [SerializeField] private Transform firePoint;
     [SerializeField] private Transform rangeTriger;
+
+    [Header("Bullet:")]
     [SerializeField] private Transform bulletPrefab;
+
+    [Header("Laser:")]
+    [SerializeField] private bool useLaser = false;
     
+
     private CreateLevel level;
     private Transform field;    
     private bool isActive = false;
@@ -20,8 +28,9 @@ public class Turret : MonoBehaviour, IOnEventCallback
     private RaiseEventOptions options;
     private SendOptions sendOptions;
     private bool scanTheArea = false;
-    private double lastTickTime;
+    private double lastTickTime;    
     private Transform bulletsContainer;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +42,8 @@ public class Turret : MonoBehaviour, IOnEventCallback
         options = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
         sendOptions = new SendOptions { Reliability = true };
 
-        lastTickTime = PhotonNetwork.Time;
-        bulletsContainer = GameObject.Find("Bullets").transform;
+        lastTickTime = PhotonNetwork.Time;        
+        bulletsContainer = GameObject.Find("Bullets").transform;      
     }
 
     private void GameOver(Transform player)
@@ -46,20 +55,23 @@ public class Turret : MonoBehaviour, IOnEventCallback
     // Update is called once per frame
     void Update()
     {
-        if (isActive && currentPlayer != null)
+        if (!useLaser)
         {
-            tower.LookAt(currentPlayer.GetChild(3));
-            if (PhotonNetwork.Time > lastTickTime + 2 && PhotonNetwork.IsMasterClient)
+            if (isActive && currentPlayer != null)
             {
-                
-                PhotonNetwork.RaiseEvent(12, false, options, sendOptions);
-                Fire();
-                
-                lastTickTime = PhotonNetwork.Time;
-            }
-        }        
-    }
+                tower.LookAt(currentPlayer.GetChild(3));
+                if (PhotonNetwork.Time > lastTickTime + 2 && PhotonNetwork.IsMasterClient)
+                {
 
+                    PhotonNetwork.RaiseEvent(12, false, options, sendOptions);
+                    Fire();
+
+                    lastTickTime = PhotonNetwork.Time;
+                }
+            }
+        }            
+    }
+    
     private byte CurrentPurpose(Transform player) {
         return (byte)player.GetComponent<PhotonView>().Owner.ActorNumber;
     }   

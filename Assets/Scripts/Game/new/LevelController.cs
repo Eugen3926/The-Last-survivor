@@ -5,22 +5,27 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using DG.Tweening;
 
 public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
-    public Transform field;
-    public Transform playerPrefab;
-    public Transform SpawnPoints;
-    public Transform collapses;
-    public Transform[] turretPrefabs;
-    public Transform[] bonusPrefabs;
-    public Transform bonuses;
-    public Transform playerContainer;
-    public Transform mainCamera;
-         
+    [SerializeField] private Transform field;
+    [SerializeField] private Transform playerPrefab;
+    [SerializeField] private Transform SpawnPoints;
+    [SerializeField] private Transform collapses;
+    [SerializeField] private Transform[] turretPrefabs;
+    [SerializeField] private Transform[] bonusPrefabs;
+    [SerializeField] private Transform bonuses;
+    [SerializeField] private Transform playerContainer;
+    [SerializeField] private Transform mainCamera;
+
+    [SerializeField] private Transform laser;
+
     private CreateLevel level;    
-    private List<Transform> emptyCells;
-    private double lastTickTime = 0;
+    private List<Transform> emptyCells;    
+    private double lastLaserMoveTime;
+    private RaiseEventOptions options;
+    private SendOptions sendOptions;
 
     public static int playerScore = 0;
     public static List<Transform> allPlayers;
@@ -38,7 +43,11 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
     {       
         level = new CreateLevel();        
         Player.onPlayerDeath += GameOver;
-    
+        lastLaserMoveTime = PhotonNetwork.Time;
+
+        options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        sendOptions = new SendOptions { Reliability = true };
+
         //StartCoroutine(collapseCreation());
         //StartCoroutine(BonusCreation());
         //StartCoroutine(ScoreCount());
@@ -49,10 +58,22 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
         /*if (PhotonNetwork.Time > lastTickTime + 5 && PhotonNetwork.IsMasterClient)
         {
             Debug.Log("One");
-            RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All};
-            SendOptions sendOptions = new SendOptions { Reliability = true};
+            
             PhotonNetwork.RaiseEvent(42, true, options, sendOptions);
         }*/
+
+        if (PhotonNetwork.Time > lastLaserMoveTime + 10 && PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.RaiseEvent(31, false, options, sendOptions);
+            LaserBeamer();
+
+            lastLaserMoveTime = PhotonNetwork.Time;
+        }
+    }
+
+    private void LaserBeamer()
+    {
+        laser.DOMoveX(42f, 10);
     }
 
     private void GameOver(Transform player)
@@ -119,21 +140,8 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
     {       
         switch (photonEvent.Code)
         {
-            case 42:
-                /*List<Transform> list = (List<Transform>) photonEvent.CustomData;
-                list[list.Count-1].GetComponent<Animator>().enabled = false;*/
-                if (allPlayers.Count > 1)
-                {
-                    foreach (var player in allPlayers)
-                    {
-                        if (player.GetComponent<PhotonView>().Owner.ActorNumber>1) {
-                            player.GetChild(2).gameObject.SetActive(false);
-                        }
-                        
-                    }
-                    Debug.Log("Oppa");
-                }
-                lastTickTime = PhotonNetwork.Time;
+            case 31:
+                LaserBeamer();
                 break;
             default:
                 break;

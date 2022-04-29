@@ -6246,7 +6246,7 @@ GameObject:
   - component: {fileID: 53130379}
   - component: {fileID: 53130378}
   - component: {fileID: 53130377}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (74)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6342,7 +6342,7 @@ GameObject:
   - component: {fileID: 61706255}
   - component: {fileID: 61706254}
   - component: {fileID: 61706253}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6435,7 +6435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 88103591}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 12_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6471,7 +6471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 127653355}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 22_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6505,7 +6505,7 @@ GameObject:
   - component: {fileID: 138237695}
   - component: {fileID: 138237694}
   - component: {fileID: 138237693}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6605,6 +6605,10 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 30058593990557915, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 152899245}
     - target: {fileID: 5675056733347502707, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
       propertyPath: m_Color.a
       value: 0.5294118
@@ -6691,6 +6695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+--- !u!120 &152899245 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 524104276248904916, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 152899244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &154320824
 GameObject:
   m_ObjectHideFlags: 0
@@ -6700,7 +6709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154320825}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_19
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6734,7 +6743,7 @@ GameObject:
   - component: {fileID: 165960913}
   - component: {fileID: 165960912}
   - component: {fileID: 165960911}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6827,7 +6836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167314627}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_12
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6849,6 +6858,87 @@ Transform:
   m_Father: {fileID: 1653940367}
   m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &188799129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188799130}
+  - component: {fileID: 188799132}
+  - component: {fileID: 188799131}
+  m_Layer: 0
+  m_Name: Spawn1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &188799130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188799129}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 39.59, y: 0.35, z: -0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 1497969020}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &188799131
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188799129}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &188799132
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188799129}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &202378474
 GameObject:
   m_ObjectHideFlags: 0
@@ -6861,7 +6951,7 @@ GameObject:
   - component: {fileID: 202378479}
   - component: {fileID: 202378478}
   - component: {fileID: 202378477}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (73)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6957,7 +7047,7 @@ GameObject:
   - component: {fileID: 233263175}
   - component: {fileID: 233263174}
   - component: {fileID: 233263173}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7050,7 +7140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 240508968}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 6_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7084,7 +7174,7 @@ GameObject:
   - component: {fileID: 246262013}
   - component: {fileID: 246262012}
   - component: {fileID: 246262011}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7180,7 +7270,7 @@ GameObject:
   - component: {fileID: 264265948}
   - component: {fileID: 264265947}
   - component: {fileID: 264265946}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7276,7 +7366,7 @@ GameObject:
   - component: {fileID: 265624249}
   - component: {fileID: 265624248}
   - component: {fileID: 265624247}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7438,7 +7528,7 @@ GameObject:
   - component: {fileID: 285035069}
   - component: {fileID: 285035068}
   - component: {fileID: 285035067}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7531,7 +7621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 297759273}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 10_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7562,7 +7652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 307730201}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 10_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7593,7 +7683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 317657339}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_17
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7626,6 +7716,10 @@ PrefabInstance:
       propertyPath: range
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 30058593990557915, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 342936308}
     - target: {fileID: 5675056733347502707, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
       propertyPath: m_Color.a
       value: 0.5294118
@@ -7700,6 +7794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+--- !u!120 &342936308 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 524104276248904916, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 342936307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &355412888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7709,7 +7808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355412889}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 23_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7743,7 +7842,7 @@ GameObject:
   - component: {fileID: 407712355}
   - component: {fileID: 407712354}
   - component: {fileID: 407712353}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7936,7 +8035,7 @@ GameObject:
   - component: {fileID: 414403469}
   - component: {fileID: 414403468}
   - component: {fileID: 414403467}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8032,7 +8131,7 @@ GameObject:
   - component: {fileID: 420693392}
   - component: {fileID: 420693391}
   - component: {fileID: 420693390}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8128,7 +8227,7 @@ GameObject:
   - component: {fileID: 432207322}
   - component: {fileID: 432207321}
   - component: {fileID: 432207320}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8224,7 +8323,7 @@ GameObject:
   - component: {fileID: 441668534}
   - component: {fileID: 441668533}
   - component: {fileID: 441668532}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8317,7 +8416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445817706}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_7
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -8429,7 +8528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452026793}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_18
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -8460,7 +8559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455467318}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 7_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -8570,7 +8669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 469950651}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 11_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -8870,7 +8969,7 @@ GameObject:
   - component: {fileID: 486412248}
   - component: {fileID: 486412247}
   - component: {fileID: 486412246}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9062,7 +9161,7 @@ GameObject:
   - component: {fileID: 503032073}
   - component: {fileID: 503032072}
   - component: {fileID: 503032071}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9155,7 +9254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519658420}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_10
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9191,7 +9290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 526646724}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 7_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9225,7 +9324,7 @@ GameObject:
   - component: {fileID: 529217224}
   - component: {fileID: 529217223}
   - component: {fileID: 529217222}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9321,7 +9420,7 @@ GameObject:
   - component: {fileID: 538505199}
   - component: {fileID: 538505198}
   - component: {fileID: 538505197}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9417,7 +9516,7 @@ GameObject:
   - component: {fileID: 555882295}
   - component: {fileID: 555882294}
   - component: {fileID: 555882293}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9510,7 +9609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567018851}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 13_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9587,7 +9686,7 @@ GameObject:
   - component: {fileID: 607225549}
   - component: {fileID: 607225548}
   - component: {fileID: 607225547}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9759,7 +9858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 622614935}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 11_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9790,7 +9889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 624769296}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9821,7 +9920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 625688224}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_25
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9855,7 +9954,7 @@ GameObject:
   - component: {fileID: 626845899}
   - component: {fileID: 626845898}
   - component: {fileID: 626845897}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (76)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9951,7 +10050,7 @@ GameObject:
   - component: {fileID: 659477363}
   - component: {fileID: 659477362}
   - component: {fileID: 659477361}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10044,7 +10143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 672604522}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10075,7 +10174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 674320804}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 25_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10109,7 +10208,7 @@ GameObject:
   - component: {fileID: 684213529}
   - component: {fileID: 684213528}
   - component: {fileID: 684213527}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10205,7 +10304,7 @@ GameObject:
   - component: {fileID: 685825900}
   - component: {fileID: 685825899}
   - component: {fileID: 685825898}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10301,7 +10400,7 @@ GameObject:
   - component: {fileID: 686537287}
   - component: {fileID: 686537286}
   - component: {fileID: 686537285}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10394,7 +10493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 699877770}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_10
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10482,6 +10581,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &717006877
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1172152514}
+    m_Modifications:
+    - target: {fileID: 5117908480468497082, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_Name
+      value: GroundPoly 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+--- !u!4 &717006878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5498233278512556032, guid: 9cf2bf37bab012e41a88adeab38e1705, type: 3}
+  m_PrefabInstance: {fileID: 717006877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &724139340
 GameObject:
   m_ObjectHideFlags: 0
@@ -10491,7 +10652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 724139341}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10525,7 +10686,7 @@ GameObject:
   - component: {fileID: 731227721}
   - component: {fileID: 731227720}
   - component: {fileID: 731227719}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10621,7 +10782,7 @@ GameObject:
   - component: {fileID: 741589786}
   - component: {fileID: 741589785}
   - component: {fileID: 741589784}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (78)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10714,7 +10875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 762255725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_21
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10824,7 +10985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778810971}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_9
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10888,6 +11049,7 @@ MonoBehaviour:
   bonuses: {fileID: 806659128}
   playerContainer: {fileID: 1362471}
   mainCamera: {fileID: 1772813243}
+  laser: {fileID: 1172152514}
 --- !u!4 &781011638
 Transform:
   m_ObjectHideFlags: 0
@@ -10914,7 +11076,7 @@ GameObject:
   - component: {fileID: 796870056}
   - component: {fileID: 796870055}
   - component: {fileID: 796870054}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11085,7 +11247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 813570099}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_16
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11119,7 +11281,7 @@ GameObject:
   - component: {fileID: 817637070}
   - component: {fileID: 817637069}
   - component: {fileID: 817637068}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11212,7 +11374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823982226}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 9_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11243,7 +11405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826023920}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_17
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11277,7 +11439,7 @@ GameObject:
   - component: {fileID: 849708205}
   - component: {fileID: 849708204}
   - component: {fileID: 849708203}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11370,7 +11532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855748949}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 9_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11578,7 +11740,7 @@ GameObject:
   - component: {fileID: 885428863}
   - component: {fileID: 885428862}
   - component: {fileID: 885428861}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11674,7 +11836,7 @@ GameObject:
   - component: {fileID: 903890952}
   - component: {fileID: 903890951}
   - component: {fileID: 903890950}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (77)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11769,6 +11931,10 @@ PrefabInstance:
       propertyPath: range
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 30058593990557915, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 904231753}
     - target: {fileID: 3801417602060280685, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -11875,6 +12041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+--- !u!120 &904231753 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 524104276248904916, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 904231752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &921770861
 GameObject:
   m_ObjectHideFlags: 0
@@ -11887,7 +12058,7 @@ GameObject:
   - component: {fileID: 921770866}
   - component: {fileID: 921770865}
   - component: {fileID: 921770864}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11983,7 +12154,7 @@ GameObject:
   - component: {fileID: 958697391}
   - component: {fileID: 958697390}
   - component: {fileID: 958697389}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12079,7 +12250,7 @@ GameObject:
   - component: {fileID: 961165714}
   - component: {fileID: 961165713}
   - component: {fileID: 961165712}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12172,7 +12343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974176365}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 20_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12203,7 +12374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984464837}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 19_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12237,7 +12408,7 @@ GameObject:
   - component: {fileID: 988304625}
   - component: {fileID: 988304624}
   - component: {fileID: 988304623}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12333,7 +12504,7 @@ GameObject:
   - component: {fileID: 992787371}
   - component: {fileID: 992787370}
   - component: {fileID: 992787369}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12426,7 +12597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 995646157}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 17_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12457,7 +12628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1036627740}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_15
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12488,7 +12659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064458280}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 17_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12519,7 +12690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072421268}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 21_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12550,7 +12721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1073100076}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_24
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12663,7 +12834,7 @@ GameObject:
   - component: {fileID: 1096233920}
   - component: {fileID: 1096233919}
   - component: {fileID: 1096233918}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12756,7 +12927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1097469986}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 18_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12787,7 +12958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111549267}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 16_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12818,7 +12989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1113218028}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_25
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12852,7 +13023,7 @@ GameObject:
   - component: {fileID: 1115759270}
   - component: {fileID: 1115759269}
   - component: {fileID: 1115759268}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12982,7 +13153,7 @@ GameObject:
   - component: {fileID: 1138930711}
   - component: {fileID: 1138930710}
   - component: {fileID: 1138930709}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (79)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13075,7 +13246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1166873036}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_13
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13106,7 +13277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1169049263}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_11
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13128,6 +13299,55 @@ Transform:
   m_Father: {fileID: 1653940367}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1172152512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172152514}
+  - component: {fileID: 1172152513}
+  m_Layer: 0
+  m_Name: LaserBeamer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1172152513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172152512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056d1ee4a96373548b5929d37c0e04a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1375657201}
+  lineRenderer: {fileID: 1375657200}
+  impactEffect: {fileID: 1375657199}
+  laserPurpose: {fileID: 1375657198}
+--- !u!4 &1172152514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172152512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5, y: 0.4, z: 34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1375657197}
+  - {fileID: 717006878}
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173246981
 GameObject:
   m_ObjectHideFlags: 0
@@ -13137,7 +13357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173246982}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_7
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13168,7 +13388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1178325771}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 14_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13235,7 +13455,7 @@ GameObject:
   - component: {fileID: 1207824370}
   - component: {fileID: 1207824369}
   - component: {fileID: 1207824368}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13424,7 +13644,7 @@ GameObject:
   - component: {fileID: 1227673820}
   - component: {fileID: 1227673819}
   - component: {fileID: 1227673818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13517,7 +13737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1229514331}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_23
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13551,7 +13771,7 @@ GameObject:
   - component: {fileID: 1229540633}
   - component: {fileID: 1229540632}
   - component: {fileID: 1229540631}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (80)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13644,7 +13864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1230495258}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_18
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13678,7 +13898,7 @@ GameObject:
   - component: {fileID: 1235808238}
   - component: {fileID: 1235808237}
   - component: {fileID: 1235808236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13850,7 +14070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1242793144}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_14
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13884,7 +14104,7 @@ GameObject:
   - component: {fileID: 1273496124}
   - component: {fileID: 1273496123}
   - component: {fileID: 1273496122}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13980,7 +14200,7 @@ GameObject:
   - component: {fileID: 1291326188}
   - component: {fileID: 1291326187}
   - component: {fileID: 1291326186}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14076,7 +14296,7 @@ GameObject:
   - component: {fileID: 1297284996}
   - component: {fileID: 1297284995}
   - component: {fileID: 1297284994}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (82)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14169,7 +14389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1308087177}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_22
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14282,7 +14502,7 @@ GameObject:
   - component: {fileID: 1334792485}
   - component: {fileID: 1334792484}
   - component: {fileID: 1334792483}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14378,7 +14598,7 @@ GameObject:
   - component: {fileID: 1336273084}
   - component: {fileID: 1336273083}
   - component: {fileID: 1336273082}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14471,7 +14691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339114619}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_13
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14507,7 +14727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1363077409}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_20
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14620,7 +14840,7 @@ GameObject:
   - component: {fileID: 1364790304}
   - component: {fileID: 1364790303}
   - component: {fileID: 1364790302}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14713,7 +14933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374337135}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 6_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14735,6 +14955,152 @@ Transform:
   m_Father: {fileID: 1653940367}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1375657196
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1172152514}
+    m_Modifications:
+    - target: {fileID: 7061214307894946, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 30058593990557915, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: useLaser
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190646683477350231, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751339948733082582, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753493559615340042, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890892779146046871, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890892779146046871, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403917596694944114, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408835987665487221, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571643523729197329, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Name
+      value: Turret (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571643523729197329, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737730216336304291, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821710474435137818, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821710474936814819, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845376254219478152, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232371568239275587, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210933271163674493, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+--- !u!4 &1375657197 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5798659792827339691, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 1375657196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1375657198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2460835943910953846, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 1375657196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1375657199 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4408835987665487222, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 1375657196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &1375657200 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 524104276248904916, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 1375657196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1375657201 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3216655660432148059, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
+  m_PrefabInstance: {fileID: 1375657196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1397153706
 GameObject:
   m_ObjectHideFlags: 0
@@ -14744,7 +15110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397153707}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 22_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14775,7 +15141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397196727}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_8
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14806,7 +15172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1426854014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 8_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14840,7 +15206,7 @@ GameObject:
   - component: {fileID: 1438293514}
   - component: {fileID: 1438293513}
   - component: {fileID: 1438293512}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (75)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14933,7 +15299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448844455}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_24
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14964,7 +15330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1470951894}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 24_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14995,7 +15361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1475743296}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 21_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -15029,7 +15395,7 @@ GameObject:
   - component: {fileID: 1483104079}
   - component: {fileID: 1483104078}
   - component: {fileID: 1483104077}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15206,7 +15572,7 @@ GameObject:
   - component: {fileID: 1495867331}
   - component: {fileID: 1495867330}
   - component: {fileID: 1495867329}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15290,6 +15656,119 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495867326}
   m_Mesh: {fileID: 3390558720134950976, guid: c89d34a9758c55f419a75317cc40dd0a, type: 3}
+--- !u!1 &1497969019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1497969020}
+  m_Layer: 0
+  m_Name: LaserSpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1497969020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497969019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1501065345}
+  - {fileID: 188799130}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1501065344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1501065345}
+  - component: {fileID: 1501065347}
+  - component: {fileID: 1501065346}
+  m_Layer: 0
+  m_Name: Spawn1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1501065345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501065344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5, y: 0.35, z: 34}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 1497969020}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1501065346
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501065344}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1501065347
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501065344}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1501764031
 GameObject:
   m_ObjectHideFlags: 0
@@ -15302,7 +15781,7 @@ GameObject:
   - component: {fileID: 1501764036}
   - component: {fileID: 1501764035}
   - component: {fileID: 1501764034}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15395,7 +15874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506195137}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_23
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -15426,7 +15905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1510120814}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 12_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -15460,7 +15939,7 @@ GameObject:
   - component: {fileID: 1525161418}
   - component: {fileID: 1525161417}
   - component: {fileID: 1525161416}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15556,7 +16035,7 @@ GameObject:
   - component: {fileID: 1542289847}
   - component: {fileID: 1542289846}
   - component: {fileID: 1542289845}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15652,7 +16131,7 @@ GameObject:
   - component: {fileID: 1548087892}
   - component: {fileID: 1548087891}
   - component: {fileID: 1548087890}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15748,7 +16227,7 @@ GameObject:
   - component: {fileID: 1548778372}
   - component: {fileID: 1548778371}
   - component: {fileID: 1548778370}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15841,7 +16320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1563191414}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_19
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -15875,7 +16354,7 @@ GameObject:
   - component: {fileID: 1568957084}
   - component: {fileID: 1568957083}
   - component: {fileID: 1568957082}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15968,7 +16447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1581121449}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 13_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -15999,7 +16478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1583474828}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_9
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16030,7 +16509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1590236133}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 8_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16064,7 +16543,7 @@ GameObject:
   - component: {fileID: 1614560111}
   - component: {fileID: 1614560110}
   - component: {fileID: 1614560109}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16165,7 +16644,7 @@ GameObject:
   - component: {fileID: 1615529453}
   - component: {fileID: 1615529452}
   - component: {fileID: 1615529451}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16261,7 +16740,7 @@ GameObject:
   - component: {fileID: 1646562675}
   - component: {fileID: 1646562674}
   - component: {fileID: 1646562673}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (81)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16354,7 +16833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1653940367}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16469,7 +16948,7 @@ GameObject:
   - component: {fileID: 1657387561}
   - component: {fileID: 1657387560}
   - component: {fileID: 1657387559}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16633,7 +17112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1664748648}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 15_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16664,7 +17143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671672830}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 15_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16695,7 +17174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1699723047}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 20_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16726,7 +17205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1699748068}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_15
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16757,7 +17236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1700921917}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 18_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16791,7 +17270,7 @@ GameObject:
   - component: {fileID: 1713827021}
   - component: {fileID: 1713827020}
   - component: {fileID: 1713827019}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16887,7 +17366,7 @@ GameObject:
   - component: {fileID: 1718445447}
   - component: {fileID: 1718445446}
   - component: {fileID: 1718445445}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16983,7 +17462,7 @@ GameObject:
   - component: {fileID: 1770576017}
   - component: {fileID: 1770576016}
   - component: {fileID: 1770576015}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17293,7 +17772,7 @@ GameObject:
   - component: {fileID: 1797419244}
   - component: {fileID: 1797419243}
   - component: {fileID: 1797419242}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17389,7 +17868,7 @@ GameObject:
   - component: {fileID: 1811440999}
   - component: {fileID: 1811440998}
   - component: {fileID: 1811440997}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17485,7 +17964,7 @@ GameObject:
   - component: {fileID: 1822947673}
   - component: {fileID: 1822947672}
   - component: {fileID: 1822947671}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17586,7 +18065,7 @@ GameObject:
   - component: {fileID: 1836400849}
   - component: {fileID: 1836400848}
   - component: {fileID: 1836400847}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17701,7 +18180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1873488621}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 25_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -17735,7 +18214,7 @@ GameObject:
   - component: {fileID: 1882399422}
   - component: {fileID: 1882399421}
   - component: {fileID: 1882399420}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17831,7 +18310,7 @@ GameObject:
   - component: {fileID: 1892430412}
   - component: {fileID: 1892430411}
   - component: {fileID: 1892430410}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17924,7 +18403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896746093}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_21
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -17955,7 +18434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1901468931}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_8
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18070,7 +18549,7 @@ GameObject:
   - component: {fileID: 1904125855}
   - component: {fileID: 1904125854}
   - component: {fileID: 1904125853}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18163,7 +18642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1909067954}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 14_27
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18194,7 +18673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1912082080}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_12
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18228,7 +18707,7 @@ GameObject:
   - component: {fileID: 1916928319}
   - component: {fileID: 1916928318}
   - component: {fileID: 1916928317}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18324,7 +18803,7 @@ GameObject:
   - component: {fileID: 1930839961}
   - component: {fileID: 1930839960}
   - component: {fileID: 1930839959}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18417,7 +18896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947349639}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18451,7 +18930,7 @@ GameObject:
   - component: {fileID: 1947503957}
   - component: {fileID: 1947503956}
   - component: {fileID: 1947503955}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18630,7 +19109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995109292}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 23_26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18661,7 +19140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2006570672}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_16
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18758,7 +19237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044257206}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_11
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18789,7 +19268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057806988}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 19_5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18823,7 +19302,7 @@ GameObject:
   - component: {fileID: 2062155684}
   - component: {fileID: 2062155683}
   - component: {fileID: 2062155682}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18924,7 +19403,7 @@ GameObject:
   - component: {fileID: 2067573024}
   - component: {fileID: 2067573023}
   - component: {fileID: 2067573022}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19017,7 +19496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2071931073}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 24_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -19051,7 +19530,7 @@ GameObject:
   - component: {fileID: 2088535593}
   - component: {fileID: 2088535592}
   - component: {fileID: 2088535591}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19144,7 +19623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2095201092}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 26_14
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -19175,7 +19654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106665268}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_22
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -19209,7 +19688,7 @@ GameObject:
   - component: {fileID: 2124473605}
   - component: {fileID: 2124473604}
   - component: {fileID: 2124473603}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19305,7 +19784,7 @@ GameObject:
   - component: {fileID: 2124562985}
   - component: {fileID: 2124562984}
   - component: {fileID: 2124562983}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.005 (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19398,7 +19877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127093239}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 5_20
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -19429,7 +19908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2133394478}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cell 16_6
   m_TagString: Wall
   m_Icon: {fileID: 0}
