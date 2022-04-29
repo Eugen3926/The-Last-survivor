@@ -6,11 +6,12 @@ using Photon.Realtime;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] private Transform playerContainer;
     Transform heroTransform;
     // Start is called before the first frame update
     void Start()
     {
-        heroTransform = GameObject.Find("Player").transform.GetChild(0);
+        heroTransform = playerContainer.GetChild(0);
     }
 
     // Update is called once per frame

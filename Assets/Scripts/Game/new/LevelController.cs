@@ -26,14 +26,19 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
     public static List<Transform> allPlayers;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        Application.targetFrameRate = 60; 
-        level = new CreateLevel();
-        allPlayers = new List<Transform>();
-        Player.onPlayerDeath += GameOver;
+        Application.targetFrameRate = 60;        
+        allPlayers = new List<Transform>();       
 
         SpawnPlayer();
+    }
+
+    void Start()
+    {       
+        level = new CreateLevel();        
+        Player.onPlayerDeath += GameOver;
+    
         //StartCoroutine(collapseCreation());
         //StartCoroutine(BonusCreation());
         //StartCoroutine(ScoreCount());
@@ -50,9 +55,10 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
         }*/
     }
 
-    private void GameOver()
+    private void GameOver(Transform player)
     {
-        StopAllCoroutines();        
+        allPlayers.Remove(player);
+        //StopAllCoroutines();        
     }
 
     /*private void FieldGeneration(Transform cellPrefab, Vector2 fieldSize, string cellType)
@@ -100,6 +106,7 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
     private void SpawnPlayer()
     {        
         Transform hero = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPoints.GetChild(Random.Range(0, SpawnPoints.childCount)).position, Quaternion.identity).transform;
+        allPlayers.Add(hero);
         hero.SetParent(playerContainer);        
     }
 

@@ -17,15 +17,19 @@ public class PlayerController
         hero.rotation = Quaternion.LookRotation(dir);        
     }
 
-    public void Damage(Image healthBar, Image armorhBar)
+    public void Damage(Transform player)
     {
+        /*Image armorhBar = player.GetChild(5).GetChild(3).GetComponent<Image>();
+        Image healthBar = player.GetChild(5).GetChild(1).GetComponent<Image>();
+        float damageValue = 0.21f / LevelController.allPlayers.Count;
         if (armorhBar.gameObject.activeSelf)
         {
-            armorhBar.fillAmount -= 0.21f;
+            armorhBar.fillAmount -= damageValue;
         }
         else {
-            healthBar.fillAmount -= 0.21f;
-        }
+            Debug.Log("Damage");
+            healthBar.fillAmount -= damageValue;
+        }*/
         
     }
 

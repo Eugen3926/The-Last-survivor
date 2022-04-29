@@ -12,23 +12,32 @@ public class Turret : MonoBehaviour, IOnEventCallback
     [SerializeField] private Transform tower;
     [SerializeField] private Transform rangeTriger;
     [SerializeField] private Transform bulletPrefab;
-    [SerializeField] private PhotonView photonView;
-
+    
     private CreateLevel level;
     private Transform field;    
     private bool isActive = false;
+    private Transform currentPlayer;
+    private RaiseEventOptions options;
+    private SendOptions sendOptions;
+    private bool scanTheArea = false;
+    private double lastTickTime;
+    private Transform bulletsContainer;
 
     // Start is called before the first frame update
     void Start()
     {
         level = new CreateLevel();
         field = GameObject.Find("NewField").transform;
-        Player.onPlayerDeath += GameOver;
+        Player.onPlayerDeath += GameOver;        
 
-        
+        options = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
+        sendOptions = new SendOptions { Reliability = true };
+
+        lastTickTime = PhotonNetwork.Time;
+        bulletsContainer = GameObject.Find("Bullets").transform;
     }
 
-    private void GameOver()
+    private void GameOver(Transform player)
     {
         Player.onPlayerDeath -= GameOver;
         StopAllCoroutines();
@@ -37,41 +46,28 @@ public class Turret : MonoBehaviour, IOnEventCallback
     // Update is called once per frame
     void Update()
     {
-        if (isActive)
+        if (isActive && currentPlayer != null)
         {
-            
-            //tower.LookAt(nearestPlayer());            
-        }               
-        
+            tower.LookAt(currentPlayer.GetChild(3));
+            if (PhotonNetwork.Time > lastTickTime + 2 && PhotonNetwork.IsMasterClient)
+            {
+                
+                PhotonNetwork.RaiseEvent(12, false, options, sendOptions);
+                Fire();
+                
+                lastTickTime = PhotonNetwork.Time;
+            }
+        }        
     }
 
-    private Transform nearestPlayer()
-    {
-        float distance = Vector3.Distance(this.transform.position, LevelController.allPlayers[0].position);
-        Transform nearestPlayer = null;
-        foreach (var player in LevelController.allPlayers)
-        {      
-            float d = Vector3.Distance(this.transform.position, player.position);
-            if (d <= distance) 
-            { 
-                distance = d;
-                nearestPlayer = player;                
-            }
-        }
-        return nearestPlayer;
-    }
+    private byte CurrentPurpose(Transform player) {
+        return (byte)player.GetComponent<PhotonView>().Owner.ActorNumber;
+    }   
 
     private void OnTriggerEnter(Collider other)
     {        
         if (other.gameObject.tag == "Player") {
-            isActive = true;
-            byte turNumb = FindTurret(this.transform);
-            byte playerNumb = (byte)other.GetComponent<PhotonView>().Owner.ActorNumber;
-            RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
-            SendOptions sendOptions = new SendOptions { Reliability = true };
-            PhotonNetwork.RaiseEvent(11, new object[] { isActive, turNumb, playerNumb }, options, sendOptions);
-            tower.LookAt(other.transform);
-            //StartCoroutine(Fire());
+            ChangeTurretState(true, other.transform);             
         }        
     }
 
@@ -85,31 +81,42 @@ public class Turret : MonoBehaviour, IOnEventCallback
         return res;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (scanTheArea && other.gameObject.tag == "Player")
+        {
+            ChangeTurretState(true, other.transform);
+            scanTheArea = false;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {        
         if (other.gameObject.tag == "Player")
         {
-            isActive = false;
-            StopCoroutine(Fire());
+            ChangeTurretState(false, null);
+            scanTheArea = true;
         }
     }
 
-    IEnumerator Fire()
-    {
-        while (isActive)
-        {
-            yield return new WaitForSecondsRealtime(1f);
-            Transform bullet = Instantiate(bulletPrefab, tower.GetChild(3).position, Quaternion.identity);
-            bullet.SetParent(tower.GetChild(3));           
-        }
+    private void ChangeTurretState(bool state, Transform player) {
+        isActive = state;
+        currentPlayer = player;        
+        PhotonNetwork.RaiseEvent(10, isActive, options, sendOptions);
     }
 
+    private void Fire() {        
+        Transform bullet = Instantiate(bulletPrefab, tower.GetChild(3).position, Quaternion.identity).transform;
+        Bullet bulScript = bullet.GetComponent<Bullet>();        
+        if(bulScript != null) bulScript.Seek(tower.GetChild(4));
+    }
+   
     public void OnEvent(EventData photonEvent)
     {
         switch (photonEvent.Code)
         {
-            case 10:
-                
+            case 10: 
+                isActive = (bool)photonEvent.CustomData;                
                 break;
             case 11:
                 object[] data = (object[])photonEvent.CustomData;
@@ -119,8 +126,11 @@ public class Turret : MonoBehaviour, IOnEventCallback
                     {
                         transform.parent.GetChild((byte)data[1]).GetChild(0).LookAt(player);
                     }
-                }                
+                }
                 break;
+            case 12:
+                Fire();
+                break;                
             default:
                 break;
         }

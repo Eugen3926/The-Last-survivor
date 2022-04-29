@@ -21,7 +21,7 @@ public class Bonus : MonoBehaviour
         transform.DORotate(new Vector3(0f, startRotation + 360f, 0f), 5f, RotateMode.FastBeyond360).OnComplete(() => Rotate());
     }
 
-    private void GameOver()
+    private void GameOver(Transform player)
     {
         DOTween.PauseAll();
     }

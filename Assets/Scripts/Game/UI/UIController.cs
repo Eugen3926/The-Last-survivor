@@ -38,7 +38,7 @@ public class UIController : MonoBehaviour
         }   */     
     }
 
-    private void GameOver()
+    private void GameOver(Transform player)
     {
         joystic.SetActive(false);
         scoreField.gameObject.SetActive(false);

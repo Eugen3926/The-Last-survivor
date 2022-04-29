@@ -1,21 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using UnityEngine.UI;
-using System;
+
 
 public class Bullet : MonoBehaviour
 {
     public static event onCollisionEvent onBulletHit;
-    public delegate void onCollisionEvent(Image healthBar, Image armorBar);
+    public delegate void onCollisionEvent(Transform player);
+
+   
+    private Vector3 target;
+    private float speed = 10f;    
+
+    public void Seek(Transform _target) {
+        target = new Vector3(_target.position.x, _target.position.y, _target.position.z);
+    }
+    
 
     private void Start()
-    {
-        Player.onPlayerDeath += GameOver;
+    {        
+        Player.onPlayerDeath += GameOver;        
     }
 
-    private void GameOver()
+    private void GameOver(Transform player)
     {
         /*if (this.gameObject != null)
         {
@@ -24,14 +29,8 @@ public class Bullet : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        if (this.gameObject != null) {
-            transform.localPosition += new Vector3(0f, -0.01f, 0f);
-            if (transform.localPosition.y > 10f)
-            {
-                Destroy(this.gameObject);
-            }
-        }            
+    {       
+        BulletFly();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -41,8 +40,25 @@ public class Bullet : MonoBehaviour
         }
         
         if (collision.gameObject.tag == "Player")
-        {
-            onBulletHit?.Invoke(collision.gameObject.transform.parent.GetChild(1).GetChild(1).GetComponent<Image>(), collision.gameObject.transform.parent.GetChild(1).GetChild(3).GetComponent<Image>());
+        {            
+            onBulletHit?.Invoke(collision.transform);
         }
+    }
+
+    private void BulletFly() {
+        if (target == null) {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Vector3 dir = target - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
+
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);        
     }
 }
