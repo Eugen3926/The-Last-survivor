@@ -23,9 +23,11 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     private CreateLevel level;    
     private List<Transform> emptyCells;    
-    private double lastLaserMoveTime;
     private RaiseEventOptions options;
     private SendOptions sendOptions;
+
+    private double lastLaserMoveTime;
+    private double lastBonusSpawnTime;
 
     public static int playerScore = 0;
     public static List<Transform> allPlayers;
@@ -44,8 +46,9 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
         level = new CreateLevel();        
         Player.onPlayerDeath += GameOver;
         lastLaserMoveTime = PhotonNetwork.Time;
+        lastBonusSpawnTime = PhotonNetwork.Time;
 
-        options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        options = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
         sendOptions = new SendOptions { Reliability = true };
 
         //StartCoroutine(collapseCreation());
@@ -55,13 +58,6 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     private void Update()
     {
-        /*if (PhotonNetwork.Time > lastTickTime + 5 && PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("One");
-            
-            PhotonNetwork.RaiseEvent(42, true, options, sendOptions);
-        }*/
-
         if (PhotonNetwork.Time > lastLaserMoveTime + 10 && PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.RaiseEvent(31, false, options, sendOptions);
@@ -69,12 +65,29 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
 
             lastLaserMoveTime = PhotonNetwork.Time;
         }
+
+        if (PhotonNetwork.Time > lastBonusSpawnTime + 10 && PhotonNetwork.IsMasterClient)
+        {            
+            SpawnBonus();
+            lastBonusSpawnTime = PhotonNetwork.Time;
+        }
+    }
+
+    private void SpawnBonus()
+    {
+        emptyCells = level.GetEmptyCells(field);
+        int rand = Random.Range(0, bonusPrefabs.Length);
+        Transform bonus = Instantiate(bonusPrefabs[rand]);
+        bonus.SetParent(bonuses);
+        int randCell = Random.Range(0, emptyCells.Count);
+        Transform bonusCell = emptyCells[randCell];
+        PhotonNetwork.RaiseEvent(32, new object[] { rand, randCell }, options, sendOptions);
+        level.CreateBonus(bonus, bonusCell);
     }
 
     private void LaserBeamer()
     {
-        //lasers.GetChild(Random.Range(0, lasers.childCount)).gameObject.SetActive(true);
-        lasers.GetChild(1).gameObject.SetActive(true);
+        lasers.GetChild(Random.Range(0, 0)).gameObject.SetActive(true);        
     }
 
     private void GameOver(Transform player)
@@ -104,7 +117,7 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
         }
     }
 
-    IEnumerator BonusCreation()
+    /*IEnumerator BonusCreation()
     {
         while (true)
         {
@@ -114,7 +127,7 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
             bonus.SetParent(bonuses);
             level.CreateBonus(bonus, emptyCells);
         }
-    }
+    }*/
 
     IEnumerator ScoreCount()
     {
@@ -143,6 +156,13 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             case 31:
                 LaserBeamer();
+                break;
+            case 32:
+                object[] data = (object[])photonEvent.CustomData;
+                Transform bonus = Instantiate(bonusPrefabs[(int) data[0]]);
+                emptyCells = level.GetEmptyCells(field);
+                Transform bonusCell = emptyCells[(int) data[1]];
+                level.CreateBonus(bonus, bonusCell);
                 break;
             default:
                 break;

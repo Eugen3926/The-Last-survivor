@@ -169,9 +169,8 @@ public class CreateLevel
 
     }
 
-    public void CreateBonus(Transform bonus, List<Transform> emptyCells)
-    {
-        Transform cell = emptyCells[Random.Range(0, emptyCells.Count)];
+    public void CreateBonus(Transform bonus, Transform cell)
+    {        
         cell.tag = "notEmptyCell";
         bonus.position = new Vector3(cell.position.x, bonus.position.y, cell.position.z);
         
