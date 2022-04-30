@@ -35,6 +35,7 @@ public class Turret : MonoBehaviour, IOnEventCallback
     // Start is called before the first frame update
     void Start()
     {
+        //Debug.Log((int) Mathf.Ceil(179.26f) + " / " + Mathf.Ceil(179.56f));
         level = new CreateLevel();
         field = GameObject.Find("NewField").transform;
         Player.onPlayerDeath += GameOver;        

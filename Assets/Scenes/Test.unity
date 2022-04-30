@@ -11054,6 +11054,7 @@ MonoBehaviour:
   bonuses: {fileID: 806659128}
   playerContainer: {fileID: 0}
   mainCamera: {fileID: 0}
+  laser: {fileID: 0}
 --- !u!4 &781011638
 Transform:
   m_ObjectHideFlags: 0
@@ -12600,7 +12601,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 30058593990557915, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
       propertyPath: useLaser
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3890892779146046871, guid: 1bd8353961401a540b86e2f05f4ce3ab, type: 3}
       propertyPath: m_IsActive

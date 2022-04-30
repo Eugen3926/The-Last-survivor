@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
@@ -29,6 +26,7 @@ public class Player : MonoBehaviour, IOnEventCallback
         JoystickController.onTouchDownEvent += MovePlayer;
         Bullet.onBulletHit += GetDamage;
         Bonus.onBonusCollision += player.BonusEffect;
+        LaserBeamer.onRayHit += GetDamage;
 
         options = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
         sendOptions = new SendOptions { Reliability = true };
@@ -91,13 +89,13 @@ public class Player : MonoBehaviour, IOnEventCallback
         player.Move(joyX, joyZ, hero);
     }
 
-    private void GetDamage(PhotonView currentPlayer) {       
+    private void GetDamage(PhotonView currentPlayer, float damageValue) {       
 
         if (photonView.Owner.ActorNumber == currentPlayer.Owner.ActorNumber)
         {
             Debug.Log("Damage");
             Image healthBar = currentPlayer.transform.GetChild(5).GetChild(1).GetComponent<Image>();
-            healthBar.fillAmount -= 0.15f;            
+            healthBar.fillAmount -= damageValue;            
             PhotonNetwork.RaiseEvent(1, new object[] { currentPlayer.Owner.ActorNumber, healthBar.fillAmount }, options, sendOptions);            
         }
     }

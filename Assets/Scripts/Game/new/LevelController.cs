@@ -19,7 +19,7 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
     [SerializeField] private Transform playerContainer;
     [SerializeField] private Transform mainCamera;
 
-    [SerializeField] private Transform laser;
+    [SerializeField] private Transform lasers;
 
     private CreateLevel level;    
     private List<Transform> emptyCells;    
@@ -73,7 +73,8 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     private void LaserBeamer()
     {
-        laser.DOMoveX(42f, 10);
+        //lasers.GetChild(Random.Range(0, lasers.childCount)).gameObject.SetActive(true);
+        lasers.GetChild(1).gameObject.SetActive(true);
     }
 
     private void GameOver(Transform player)

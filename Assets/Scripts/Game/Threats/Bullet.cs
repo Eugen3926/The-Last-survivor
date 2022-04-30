@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Bullet : MonoBehaviour
 {
     public static event onCollisionEvent onBulletHit;
-    public delegate void onCollisionEvent(PhotonView player);
+    public delegate void onCollisionEvent(PhotonView player, float damage);
 
    
     private Vector3 target;
@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PhotonView colPlayer = collision.transform.GetComponent<PhotonView>();            
-            onBulletHit?.Invoke(colPlayer);
+            onBulletHit?.Invoke(colPlayer, 0.15f);
         }
     }    
 
