@@ -7,8 +7,7 @@ public class LobbyUiController : MonoBehaviour
     [SerializeField] private InputField playerName;
     [SerializeField] private Text placeHolder;
     [SerializeField] private GameObject popUp;
-    [SerializeField] private Button readyButton;
-    [SerializeField] private GameObject statusField;
+    [SerializeField] private Button readyButton;    
 
     public delegate void ButtonAction(string playerName);
     public static event ButtonAction OnReadyButtonDown;
@@ -28,8 +27,7 @@ public class LobbyUiController : MonoBehaviour
         }
         else
         {
-            OnReadyButtonDown?.Invoke(playerName.text);
-            statusField.SetActive(true);
+            OnReadyButtonDown?.Invoke(playerName.text);            
         }        
     }
 

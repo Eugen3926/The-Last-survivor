@@ -11342,6 +11342,7 @@ MonoBehaviour:
   - {fileID: 4117261103554962218, guid: 07c271ae94358c543bf535cba9560a2d, type: 3}
   - {fileID: 4963677649985441781, guid: d39afc0f49018bc45a429c3f163a2ca1, type: 3}
   - {fileID: 5347001905889236837, guid: a7e40ca5ef759354980510da41ca79da, type: 3}
+  - {fileID: 5010645991593270100, guid: bad91655eedf5024e9f6c7f0d1d51b50, type: 3}
   bonuses: {fileID: 806659128}
   playerContainer: {fileID: 1362471}
   mainCamera: {fileID: 1772813243}

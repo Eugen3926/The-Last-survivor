@@ -2,11 +2,14 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private byte maxPlayers = 4;
     [SerializeField] string region;
+    [SerializeField] Text infoField;
+
 
     private bool isReadyToPlay = false;
 
@@ -16,6 +19,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     }
     private void Start()
     {
+        infoField.text = "Connection...";
         LobbyUiController.OnReadyButtonDown += QuickMatch;
         
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -33,6 +37,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to " + PhotonNetwork.CloudRegion);
+        infoField.text = "Connected to " + PhotonNetwork.CloudRegion + " region";
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -62,6 +67,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("Room " + PhotonNetwork.CurrentRoom.Name + " created");
+        infoField.text = "Room " + PhotonNetwork.CurrentRoom.Name + " created";
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
@@ -72,6 +78,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined to " + PhotonNetwork.CurrentRoom.Name + " room");
+        infoField.text = "Waiting for another players...";
         isReadyToPlay = true;
     }
 }

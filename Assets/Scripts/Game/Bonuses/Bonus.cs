@@ -7,18 +7,15 @@ using System;
 public class Bonus : MonoBehaviour
 {
     private float range = 0.15f;
-    private float startPosition;
-    private float startRotation;
+    private float startPosition;   
 
     public static event onCollision onBonusCollision;
     public delegate void onCollision(string name);
     private void Start()
     {
         Player.onPlayerDeath += GameOver;
-        startPosition = transform.position.y;
-        startRotation = transform.rotation.y;
-        transform.DOMoveY(transform.position.y + range, 1f).OnComplete(() => Move());
-        transform.DORotate(new Vector3(0f, startRotation + 360f, 0f), 5f, RotateMode.FastBeyond360).OnComplete(() => Rotate());
+        startPosition = transform.position.y;        
+        transform.DOMoveY(transform.position.y + range, 1f).OnComplete(() => Move());        
     }
 
     private void GameOver(Transform player)
@@ -28,7 +25,7 @@ public class Bonus : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        transform.Rotate(new Vector3(0, 20, 0) * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision collision)
     {        
@@ -41,11 +38,5 @@ public class Bonus : MonoBehaviour
         range *= -1;
         startPosition = transform.position.y;
         transform.DOMoveY(transform.position.y + range, 1f).OnComplete(() => Move());
-    }
-
-    private void Rotate()
-    {        
-        startRotation = transform.rotation.y;
-        transform.DORotate(new Vector3(0f, startRotation + 360f, 0f), 5f, RotateMode.FastBeyond360).OnComplete(() => Rotate());
-    }
+    }   
 }

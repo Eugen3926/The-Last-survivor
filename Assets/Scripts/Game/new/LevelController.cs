@@ -76,7 +76,7 @@ public class LevelController : MonoBehaviourPunCallbacks, IOnEventCallback
     private void SpawnBonus()
     {
         emptyCells = level.GetEmptyCells(field);
-        int rand = Random.Range(0, bonusPrefabs.Length);
+        int rand = Random.Range(3, bonusPrefabs.Length);
         Transform bonus = Instantiate(bonusPrefabs[rand]);
         bonus.SetParent(bonuses);
         int randCell = Random.Range(0, emptyCells.Count);
